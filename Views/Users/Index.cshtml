@@ -1,0 +1,68 @@
+﻿@model IEnumerable<users.Models.User>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Użytkownicy</h1>
+
+<p>
+    <a asp-action="Create">Dodaj użytkownika</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.u_Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.u_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.u_DefaultLanguage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.u_MachineID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.u_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.u_Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.u_Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.u_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.u_DefaultLanguage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.u_MachineID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.u_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.u_Active)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.u_Id">Edytuj</a> |
+                    <a asp-action="Details" asp-route-id="@item.u_Id">Szczegóły</a> |
+                    <a asp-action="Delete" asp-route-id="@item.u_Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

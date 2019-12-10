@@ -1,0 +1,89 @@
+﻿@model users.Models.User
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edytuj</h1>
+
+<h4>Dane użytkownika</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="u_Id" />
+            <div class="form-group">
+                <label asp-for="u_Code" class="control-label"></label>
+                <input asp-for="u_Code" class="form-control" />
+                <span asp-validation-for="u_Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_Name" class="control-label"></label>
+                <input asp-for="u_Name" class="form-control" />
+                <span asp-validation-for="u_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_DefaultLanguage" class="control-label"></label>
+                <!--<input asp-for="u_DefaultLanguage" class="form-control" />-->
+                <select asp-for="u_DefaultLanguage" class="form-control">
+                    <option value="0">Język polski</option>
+                    <option value="1">Język angielski</option>
+                    <option value="2">Język czeski</option>
+                </select>
+                <span asp-validation-for="u_DefaultLanguage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_ForeignCode" class="control-label"></label>
+                <input asp-for="u_ForeignCode" class="form-control" />
+                <span asp-validation-for="u_ForeignCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_Pwd" class="control-label"></label>
+                <input asp-for="u_Pwd" class="form-control" />
+                <span asp-validation-for="u_Pwd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_Type" class="control-label"></label>
+                <!--<input asp-for="u_Type" class="form-control" />-->
+                <select asp-for="u_Type" class="form-control">
+                    <option value="0">Przedstawiciel handlowy</option>
+                    <option value="1">Zwykły użytkownik</option>
+                    <option value="2">Dyrektor regonalny</option>
+                    <option value="3">Administrator</option>
+                </select>
+                <span asp-validation-for="u_Type" class="text-danger"></span>
+            </div>
+            <!--<div class="form-group">
+                <label asp-for="u_Active" class="control-label"></label>
+                <input class="form-check-input" asp-for="u_Active" /> @Html.DisplayNameFor(model => model.u_Active)
+                </label>
+            <select asp-for="u_Active" class="form-control">
+                <option value="0">Nieaktywny</option>
+                <option value="1">Aktywny</option>
+            </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_ForeignId" class="control-label"></label>
+                <input asp-for="u_ForeignId" class="form-control" />
+                <span asp-validation-for="u_ForeignId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_MachineID" class="control-label"></label>
+                <input asp-for="u_MachineID" class="form-control" />
+                <span asp-validation-for="u_MachineID" class="text-danger"></span>
+            </div>-->
+    <div class="form-group">
+        <input type="submit" value="Zapisz" class="btn btn-primary" />
+    </div>
+    </form>
+</div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Wróć do listy</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
