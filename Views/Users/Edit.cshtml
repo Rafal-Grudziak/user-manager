@@ -25,7 +25,6 @@
             </div>
             <div class="form-group">
                 <label asp-for="u_DefaultLanguage" class="control-label"></label>
-                <!--<input asp-for="u_DefaultLanguage" class="form-control" />-->
                 <select asp-for="u_DefaultLanguage" class="form-control">
                     <option value="0">Język polski</option>
                     <option value="1">Język angielski</option>
@@ -45,7 +44,6 @@
             </div>
             <div class="form-group">
                 <label asp-for="u_Type" class="control-label"></label>
-                <!--<input asp-for="u_Type" class="form-control" />-->
                 <select asp-for="u_Type" class="form-control">
                     <option value="0">Przedstawiciel handlowy</option>
                     <option value="1">Zwykły użytkownik</option>
@@ -54,25 +52,6 @@
                 </select>
                 <span asp-validation-for="u_Type" class="text-danger"></span>
             </div>
-            <!--<div class="form-group">
-                <label asp-for="u_Active" class="control-label"></label>
-                <input class="form-check-input" asp-for="u_Active" /> @Html.DisplayNameFor(model => model.u_Active)
-                </label>
-            <select asp-for="u_Active" class="form-control">
-                <option value="0">Nieaktywny</option>
-                <option value="1">Aktywny</option>
-            </select>
-            </div>
-            <div class="form-group">
-                <label asp-for="u_ForeignId" class="control-label"></label>
-                <input asp-for="u_ForeignId" class="form-control" />
-                <span asp-validation-for="u_ForeignId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="u_MachineID" class="control-label"></label>
-                <input asp-for="u_MachineID" class="form-control" />
-                <span asp-validation-for="u_MachineID" class="text-danger"></span>
-            </div>-->
     <div class="form-group">
         <input type="submit" value="Zapisz" class="btn btn-primary" />
     </div>
