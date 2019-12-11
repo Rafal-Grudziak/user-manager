@@ -27,7 +27,7 @@ namespace users
             services.AddControllersWithViews();
 
             services.AddDbContext<UserContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("pl")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

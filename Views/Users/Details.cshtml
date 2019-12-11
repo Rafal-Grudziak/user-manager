@@ -1,5 +1,6 @@
 ﻿@model users.Models.User
 
+
 @{
     ViewData["Title"] = "Details";
 }
@@ -9,62 +10,87 @@
 <div>
     <h4>User</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.u_Type)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.u_Type)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.u_Active)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.u_Active)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.u_Code)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.u_Code)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.u_ForeignId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.u_ForeignId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.u_ForeignCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.u_ForeignCode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.u_Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.u_Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.u_Pwd)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.u_Pwd)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.u_MachineID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.u_MachineID)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.u_DefaultLanguage)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.u_DefaultLanguage)
-        </dd>
-    </dl>
+
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.u_Code)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.u_Code)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.u_Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.u_Name)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.u_DefaultLanguage)
+            </dt>
+            <dd class="col-sm-10">
+                @{
+                    var dl = Model.u_DefaultLanguage;
+                    string lang = "";
+                    if (dl == 0) lang = "Język polski";
+                    else if (dl == 1) lang = "Język angielski";
+                    else if (dl == 2) lang = "Język czeski";
+                }
+                <p>@lang</p>
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.u_MachineID)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.u_MachineID)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.u_Type)
+            </dt>
+            <dd class="col-sm-10">
+                @{ 
+                    var ut = Model.u_Type;
+                    string type = "";
+                    if (ut == 0) type = "Przestawiciel handlowy";
+                    else if (ut == 1) type = "Zwykły użytkownik";
+                    else if (ut == 2) type = "Dyrektor regionalny";
+                    else if (ut == 3) type = "Administrator";
+                }
+                <p>@type</p>
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.u_Active)
+            </dt>
+            <dd class="col-sm-10">
+                @{
+                    var ac = Model.u_Active;
+                    string a = "";
+                    if (ac == false) a = "Nie";
+                    else if (ac == true) a = "Tak";
+
+                }
+                <p>@a</p>
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.u_ForeignId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.u_ForeignId)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.u_ForeignCode)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.u_ForeignCode)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.u_Pwd)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.u_Pwd)
+            </dd>
+
+
+        </dl>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.u_Id">Edytuj</a> |

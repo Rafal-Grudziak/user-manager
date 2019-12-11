@@ -1,14 +1,13 @@
-﻿@model IEnumerable<users.Models.User>
-
+﻿@model  IEnumerable<users.Models.User>
 
 @{
-    ViewData["Title"] = "Index";
+ViewData["Title"]="Index" ;
 }
 
 <h1>Użytkownicy</h1>
 
 <p>
-    <a asp-action="Create">Dodaj użytkownika</a>
+    <a asp-action="Create" class="btn btn-primary">Dodaj użytkownika</a>
 </p>
 <table class="table">
     <thead>
@@ -45,22 +44,49 @@
                     @Html.DisplayFor(modelItem => item.u_Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.u_DefaultLanguage)
+                    @{
+                        var dl = item.u_DefaultLanguage;
+                        string lang = "";
+                        if (dl == 0) lang = "Język polski";
+                        else if (dl == 1) lang = "Język angielski";
+                        else if (dl == 2) lang = "Język czeski";
+                    }
+                    <p>@lang</p>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.u_MachineID)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.u_Type)
+                    @{
+                        var ut = item.u_Type;
+                        string type = "";
+                        if (ut == 0) type = "Przestawiciel handlowy";
+                        else if (ut == 1) type = "Zwykły użytkownik";
+                        else if (ut == 2) type = "Dyrektor regionalny";
+                        else if (ut == 3) type = "Administrator";
+                    }
+                    <p>@type</p>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.u_Active)
+                    
+                    @{
+                    var ac = item.u_Active;
+                    string a = "";
+                    if (ac == false) a = "Nie";
+                    else if (ac == true) a = "Tak";
+
+                    }
+                    <p>@a</p>
                 </td>
 
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.u_Id">Edytuj</a> |
                     <a asp-action="Details" asp-route-id="@item.u_Id">Szczegóły</a> |
                     <a asp-action="Delete" asp-route-id="@item.u_Id">Usuń</a>
+                    <!--<form asp-action="Delete">
+                        <input type="hidden" asp-for="@item.u_Id" />
+                        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+                    </form>-->
                 </td>
             </tr>
         }
