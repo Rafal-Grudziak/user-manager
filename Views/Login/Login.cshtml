@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Logowanie</h2>
+            <form action="Verify" method="POST">
+                <div class="form-group">
+                    <label>Nazwa użytkownika:</label>
+                    <div class="group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="u_Code" class="form-control" placeholder="Nazwa użytkownika" required="required" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Hasło:</label>
+                    <div class="group">
+                        <i class="fas fa-unlock"></i>
+                        <input type="password" name="u_Pwd" class="form-control" placeholder="Hasło" required="required" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Zaloguj</button>
+            </form>
+        </div>
+    </div>
+

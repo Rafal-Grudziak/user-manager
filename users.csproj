@@ -13,6 +13,13 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SzyftGetSet">
+      <HintPath>SzyftGetSet.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
